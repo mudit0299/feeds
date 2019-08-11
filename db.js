@@ -8,6 +8,9 @@ const db = new Sequelize('mydb', 'root', 'root', {
           type:Sequelize.INTEGER,
           autoIncrement:true,
           primaryKey:true
+      },title:{
+        allowNull:false,
+        type:Sequelize.STRING
       },
       content:{
           allowNull:false,
