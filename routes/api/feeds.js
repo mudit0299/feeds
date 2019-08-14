@@ -1,4 +1,4 @@
-const Feeds=require('../db').Feeds
+const Feeds=require('../../db').Feeds
 const route=require('express').Router()
 route.get('/',(req,res)=>{
     Feeds.findAll()
@@ -23,3 +23,4 @@ route.post('/',(req,res)=>{
         })
     })
 })
+exports = module.exports = route

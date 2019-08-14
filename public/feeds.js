@@ -1,11 +1,12 @@
 function fetchfeeds (done) {
-    $.get('/feeds', function (data) {
+    $.get('/api/feeds', function (data) {
         done(data)
     })
 }
 function createfeedcard (feed) {
     return $(`
-    <div class="card border-info mb-3" style="max-width: 18rem;">
+    
+    <div class="card border-info mb-3 .bg-dark " ;">
   <div class="card-header">${feed.title}</div>
   <div class="card-body text-info">
     
@@ -14,8 +15,8 @@ function createfeedcard (feed) {
 </div>`
         )
 }
-function addProduct (title, content,done) {
-    $.post('/feeds', {
+function addfeed (title, content,done) {
+    $.post('/api/feeds', {
         title: title,
         content: content,
        

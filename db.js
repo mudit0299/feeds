@@ -1,4 +1,4 @@
-const sequelize=require('sequelize')
+const Sequelize=require('sequelize')
 const db = new Sequelize('mydb', 'root', 'root', {
     dialect: 'sqlite',
     storage: 'feeds.db'
