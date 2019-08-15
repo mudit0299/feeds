@@ -6,6 +6,7 @@ $(function () {
         feedlist.empty()
         for (feed of feeds) {
             feedlist.append(createfeedcard(feed))
+           
         }
     })
    
@@ -28,5 +29,16 @@ $(function () {
        
             }
     })
+    feedlist.on("click","#del" ,function(event){
+      //console.log(event.target.parentElement.parentElement.parentElement.attr('id'))
+      // console.log($(event.target).attr('id'))
+       //console.log($(event.target).parent().parent().parent().parent().attr('id'))
+      // console.log(event)
+      deletetweet($(event.target).parent().parent().parent().parent().attr('id'),()=>{
+          location.reload()
+         // console.log("succcessfully deleted")
+      })
+      })
+   
 
 })

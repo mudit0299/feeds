@@ -23,4 +23,16 @@ route.post('/',(req,res)=>{
         })
     })
 })
+route.post('/:id',(req,res)=>{
+    console.log(req.params.id)
+    Feeds.destroy({
+        where :{
+            id:req.params.id
+        }
+    })
+})
+
+
+
+
 exports = module.exports = route
