@@ -10,17 +10,26 @@ $(function () {
         }
     })
    
-        let title = $('#title')
+        let author = $('#author')
         let content = $('#content')
       
         
         $('#add').click(function () {
-    if(title.val()===''&& content.val===''){
+    if(author.val()===''&& content.val===''){
         alert("kindly give title and content")
     }else{
+        console.log("creating")
             addfeed(
-                title.val(),
+               // console.log(author.val())
+                author.val(),
                 content.val(),
+                
+    
+                function(){
+                    location.reload()
+                    author.val('')
+                    content.val('')
+                }
                 
                
             )
@@ -39,6 +48,7 @@ $(function () {
          // console.log("succcessfully deleted")
       })
       })
+     
    
 
 })

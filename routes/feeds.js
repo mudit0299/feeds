@@ -1,6 +1,8 @@
-const Feeds=require('../../db').Feeds
+
 const route=require('express').Router()
+const Feeds=require('../db').Feeds
 route.get('/',(req,res)=>{
+    console.log("getting feeds")
     Feeds.findAll()
     .then((feeds)=>{
         res.status(200).send(feeds)
@@ -12,16 +14,22 @@ route.get('/',(req,res)=>{
 
 })
 route.post('/',(req,res)=>{
+    console.log("stat db")
+    console.log(req.body.author)
     Feeds.create({
-        title:req.body.title,
-        content:req.body.content
-    }).then((feeds)=>{
+    
+        author:req.body.author,
+        content:req.body.content,
+        
+    }).then((feed)=>{
+        console.log("created")
         res.status(201).send(feed)
     }).catch((error)=>{
         res.status(501).send({
             error:"error adding feeds"
         })
     })
+    console.log("end db")
 })
 route.post('/:id',(req,res)=>{
     console.log(req.params.id)
@@ -35,4 +43,6 @@ route.post('/:id',(req,res)=>{
 
 
 
-exports = module.exports = route
+exports=module.exports={
+    route
+    }
