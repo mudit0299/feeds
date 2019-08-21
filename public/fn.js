@@ -15,19 +15,23 @@ $(function () {
       
         
         $('#add').click(function () {
-    if(author.val()===''&& content.val===''){
-        alert("kindly give title and content")
-    }else{
+            // if(author.val()===''){
+            // alert("kindly give author")
+            //    }
+        if(content.val()==='')
+        alert("kindly give content" );
+    else{
         console.log("creating")
             addfeed(
                // console.log(author.val())
-                author.val(),
+               //console.log(req.user.username),
+               // req.user.username,
                 content.val(),
                 
     
                 function(){
                     location.reload()
-                    author.val('')
+                   // author.val('')
                     content.val('')
                 }
                 

@@ -18,7 +18,7 @@ route.post('/',(req,res)=>{
     console.log(req.body.author)
     Feeds.create({
     
-        author:req.body.author,
+        author:req.user.username,
         content:req.body.content,
         
     }).then((feed)=>{

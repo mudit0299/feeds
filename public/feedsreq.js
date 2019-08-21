@@ -18,12 +18,12 @@ function createfeedcard (feed) {
 </div>`
         )
 }
-function addfeed (author, content,done) {
+function addfeed (content,done) {
   console.log("start")
-  console.log(author)
+ // console.log(author)
     $.post('/feeds', {
       
-        author: author,
+        //author: author,
         content: content,
         
     }, function (data) {
