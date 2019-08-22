@@ -95,6 +95,10 @@ route.post('/login', passport.authenticate('local', {
   route.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname , '../public','login.html'));
 })
+route.get('/logout', function(req, res){
+  req.logout();
+  res.sendFile(path.join(__dirname , '../public','logout.html'));
+});
 
 
 exports=module.exports={

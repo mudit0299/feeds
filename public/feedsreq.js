@@ -5,17 +5,17 @@ function fetchfeeds (done) {
 }
 function createfeedcard (feed) {
     return $(`
-<div class="container" id=${feed.id}>
-  <div class="card border-info mb-3 .bg-dark " ;">
-    <div class="card-header">${feed.author}</div>
-    <div class="card-body text-info">   
-      <p class="card-text">${feed.content}</p>
-       <div class ="card-footer">
-         <button class =" btn btn-danger" id='del'>DELETE</button>
-       </div>
+  <div class="container" id=${feed.id}>
+    <div class="card border-info mb-3 .bg-dark " ;" id=${feed.author}>
+      <div class="card-header">${feed.author}</div>
+      <div class="card-body text-info">   
+        <p class="card-text">${feed.content}</p>
+         <div class ="card-footer">
+           <button class =" btn btn-danger" id='del'>DELETE</button>
+         </div>
+      </div>
     </div>
-  </div>
-</div>`
+  </div>`
         )
 }
 function addfeed (content,done) {
@@ -27,18 +27,20 @@ function addfeed (content,done) {
         content: content,
         
     }, function (data) {
-      console.log("done")
+    //  console.log("done")
         done(data)
     })
-    console.log("done")
+  //  console.log("done")
 }
- function deletetweet(id,done){
+ function deletetweet(id,author,done){
      console.log(id)
+    console.log(author)
      $.ajax({
-        url: '/feeds/'+id,
+        url: '/feeds/'+id+'/'+author,
      type: 'POST',
-     data: { id:id },
+     data: { id:id ,author: author},
      success: done(),
+     //failure: alert("you cannot delete others feed"),
     })
   }
 
